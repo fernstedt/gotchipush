@@ -3,11 +3,6 @@
 This is a Python tool for uploading `.pcap` handshake files to the [WPA-SEC](https://wpa-sec.stanev.org) service. It validates, uploads, and manages handshakes efficiently, with features like **Dry Run mode**, **Force upload**, and **Validation checks**.
 
 ---
-<!-- ## Creator Info
-Tool developed by:Math0x  
-GitHub: https://github.com/fernstedt  
-
--->
 
 ## Configuration
 
@@ -21,6 +16,31 @@ The only required configuration is the **API Key**, which you can retrieve from 
    ```
 
 > **Note:** The rest of the configuration options (like paths and URLs) are already set and should not be changed.
+
+---
+
+## Permissions for `/root/handshakes`
+
+By default, the `/root/handshakes` directory may not be accessible to a normal user. You need to provide appropriate permissions to ensure the script works.
+
+### Option 1: Run as Root
+Switch to the `root` user and run the script:
+
+```bash
+sudo su
+python gotchipush.py
+```
+
+### Option 2: Update Permissions for the Directory
+To allow the **default `pi` user** to run the script, change the permissions of the `/root/handshakes` directory:
+
+```bash
+sudo chmod -R 770 /root/handshakes
+sudo chown -R pi:pi /root/handshakes
+```
+
+- `770` grants full access to the directory owner and group but restricts others.
+- This allows the `pi` user to read, write, and execute files in the directory.
 
 ---
 
@@ -122,6 +142,15 @@ Contributions are welcome! Please submit a pull request or open an issue to sugg
 
 ---
 
+<!-- ## Creator Info
+Tool developed by:  
+**Your Name Here**  
+GitHub: [YourGitHubLink](https://github.com/yourgithub)  
+Contact: your.email@example.com  
+-->
+
+---
+
 ## License
 
-This project is licensed under the **GPL-3.0 License**.
+This project is licensed under the **MIT License**.
