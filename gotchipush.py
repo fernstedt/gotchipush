@@ -1,3 +1,20 @@
+"""
+GOTCHIPUSH: Handshake Uploader Tool
+
+Author: Math0x
+GitHub: https://github.com/fernstedt
+License: MIT License
+
+Description:
+This script validates and uploads `.pcap` handshake files to the WPA-SEC service.
+It supports features such as Dry Run mode, Force upload, and Validation checks.
+
+Usage:
+- python gotchipush.py          # Uploads handshakes
+- python gotchipush.py --dry-run # Simulates the upload process
+- python gotchipush.py --force   # Forces re-upload of files
+"""
+
 import os
 import logging
 import argparse
