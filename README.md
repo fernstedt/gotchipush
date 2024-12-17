@@ -36,7 +36,6 @@ To allow the **default `pi` user** to run the script, change the permissions of 
 
 ```bash
 sudo chmod -R 770 /root/handshakes
-sudo chown -R pi:pi /root/handshakes
 ```
 
 - `770` grants full access to the directory owner and group but restricts others.
@@ -139,15 +138,6 @@ python gotchipush.py > upload.log 2>&1
 ## Contributing
 
 Contributions are welcome! Please submit a pull request or open an issue to suggest improvements.
-
----
-
-<!-- ## Creator Info
-Tool developed by:  
-**Your Name Here**  
-GitHub: [YourGitHubLink](https://github.com/yourgithub)  
-Contact: your.email@example.com  
--->
 
 ---
 
