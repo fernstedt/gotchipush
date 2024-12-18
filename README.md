@@ -1,21 +1,51 @@
+<!-- ## Creator Info
+Tool developed by: Math0x  
+GitHub: https://github.com/fernstedt  
+-->
+
 # GOTCHIPUSH: Handshake Uploader Tool
 
 This is a Python tool for uploading `.pcap` handshake files to the [WPA-SEC](https://wpa-sec.stanev.org) service. It validates, uploads, and manages handshakes efficiently, with features like **Dry Run mode**, **Force upload**, and **Validation checks**.
 
 ---
 
+## Installation
+
+Before running the script, ensure that **Python 3** is installed on your system, and verify that the required libraries are available.
+
+### 1. Install Dependencies
+
+This script requires `requests` and `scapy`. If they are missing, install them using the following commands:
+
+```bash
+sudo apt install python3-requests python3-scapy
+```
+
+> **Note:** `scapy` is essential for validating `.pcap` files, as it is used to parse and verify the presence of EAPOL packets.
+
+> **Note:** `requests` is installed with pwnagotchi but it is there if someone is doing this from scratch.
+### 2. Clone the Repository
+
+Clone this repository to your desired directory:
+
+```bash
+git clone https://github.com/fernstedt/gotchipush.git
+cd gotchipush
+```
+
+### 3. Configure API Key
+
+Edit the `gotchipush.py` file and set your **API Key** in this line:
+
+```python
+API_KEY = "your_api_key_here"
+```
+
+---
+
 ## Configuration
 
 The only required configuration is the **API Key**, which you can retrieve from your [WPA-SEC account](https://wpa-sec.stanev.org).
-
-1. Open the `gotchipush.py` script.
-2. Set the API key in the following line:
-
-   ```python
-   API_KEY = "your_api_key_here"
-   ```
-
-> **Note:** The rest of the configuration options (like paths and URLs) are already set and should not be changed.
 
 ---
 
@@ -36,6 +66,7 @@ To allow the **default `pi` user** to run the script, change the permissions of 
 
 ```bash
 sudo chmod -R 770 /root/handshakes
+sudo chown -R pi:pi /root/handshakes
 ```
 
 - `770` grants full access to the directory owner and group but restricts others.
