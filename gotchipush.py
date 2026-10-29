@@ -21,16 +21,15 @@ import argparse
 import requests
 import json
 import hashlib
-from scapy.all import rdpcap, EAPOL
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Configuration
-HANDSHAKE_DIR = "/root/handshakes"  # Path to the handshake files
+HANDSHAKE_DIR = "/home/pi/handshakes"  # Path to the handshake files
 API_URL = "https://wpa-sec.stanev.org"  # WPA-SEC API base URL
 API_KEY = "YOUR-KEY"  # <-- Set your API key here as per README instructions
-UPLOADED_LOG = "/root/uploaded_handshakes.json"  # File to track uploaded handshakes
+UPLOADED_LOG = "/home/pi/uploaded_handshakes.json"  # File to track uploaded handshakes
 
 
 def ensure_trailing_slash(url):
@@ -46,6 +45,7 @@ def calculate_file_hash(file_path):
 
 
 def is_valid_handshake(file_path):
+    from scapy.all import rdpcap, EAPOL
     if os.path.getsize(file_path) == 0:
         logging.warning("File is empty: %s", file_path)
         return False
